@@ -1,44 +1,48 @@
 ﻿using System;
+
 namespace BootCamp.Chapter
 {
-    class Lesson3
+    internal class Lesson3
     {
         public static void Demo()
         {
-            for (int user = 0; user < 2; user++)
-            {
-                string name = ConsolePromptToString("Name: ");
-                string surname = ConsolePromptToString("Surname: ");
-                int age = ConsolePromptToInt("Age: ");
-                float weight = ConsolePromptToFloat("Weight: ");
-                float height = ConsolePromptToFloat("Height: ");
+            PromptUserInfoAndCalculateBmi();
+            PromptUserInfoAndCalculateBmi();
+        }
 
-                float bmi = CalculateBmi(weight, height);
+        public static void PromptUserInfoAndCalculateBmi()
+        {
+            string name = PromptToString("Name: ");
+            string surname = PromptToString("Surname: ");
+            int age = PromptToInt("Age: ");
+            float weight = PromptToFloat("Weight: ");
+            float height = PromptToFloat("Height: ");
 
-                Console.WriteLine($"{name} {surname} is {age} years old, his weight is" +
-                    $"{weight} kg and his height is {height:N1} cm.");
-                Console.WriteLine($"BMI: {bmi:N1}\n");
-            }
-        } 
+            float bmi = CalculateBmi(weight, height);
+
+            Console.WriteLine($"{name} {surname} is {age} years old, his weight is" +
+                $"{weight} kg and his height is {height:N1} cm.");
+            Console.WriteLine($"BMI: {bmi:N1}\n");
+        }
 
         public static float CalculateBmi(float weight, float height)
         {
             return weight / (height * height);
         }
 
-        public static int ConsolePromptToInt(string message)
+        public static int PromptToInt(string message)
         {
             Console.Write(message);
-            return int.Parse(Console.ReadLine()); 
+            return int.Parse(Console.ReadLine());
         }
 
-        public static string ConsolePromptToString(string message)
+        public static string PromptToString(string message)
         {
             Console.Write(message);
             return Console.ReadLine();
         }
 
-        public static float ConsolePromptToFloat(string message)
+        public static float PromptToFloat(string message)
         {
             Console.Write(message);
             return float.Parse(Console.ReadLine());

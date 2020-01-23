@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+
 namespace BootCamp.Chapter.Tests.Utils
 {
     public static class ConsoleStub
